@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <label for="title">Image Name</label>
+        <input type="text" id="name" value="" name="name" required placeholder="Image Name">
+        <label for="des">Image Description</label>
+        <textarea name="des" id="des" cols="30" rows="10" required placeholder="Image Text Description..."></textarea>
+        <label for="image">Image</label>
+        <input type="file" name="image" id="image" value="" required >
+        <button type="submit">Save Image</button>
+    </form><hr>
+    <div>
+        <!-- step 7 -->
+        <% items.forEach((image)=>{ %>
+            <img src="data:image/<%= image.img.contentType %>;base64,
+            <%= image.img.data.toString('base64') %>" style="width: 300px;" alt="">
+            <h3>Image Name: <%= image.name %></h3>
+            <p>Image Description: <%= image.des %></p>
+       <%  })  %>
+        
+    </div>
+</body>
+</html>
